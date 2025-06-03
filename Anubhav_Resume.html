@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anubhav's Resume</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>        body {
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">    <style>        body {
             font-family: 'Inter', sans-serif;
             background-color: #f0f2f5; /* Light grey background for the page */
         }
@@ -15,7 +14,13 @@
             text-align: justify;
             text-justify: inter-word;
         }
-        /* Custom scrollbar for better aesthetics */
+        /* Consistent spacing for sections and elements */
+        section {
+            margin-bottom: 1.5rem;
+        }
+        .mb-8 {
+            margin-bottom: 1.5rem; /* More consistent spacing between sections */
+        }        /* Custom scrollbar for better aesthetics */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -29,6 +34,21 @@
         }
         ::-webkit-scrollbar-thumb:hover {
             background: #555;
+        }
+        /* Mobile-specific spacing adjustments */
+        @media (max-width: 768px) {
+            .mb-8 {
+                margin-bottom: 1rem !important; /* Reduce spacing on mobile */
+            }
+            .mb-6 {
+                margin-bottom: 0.75rem !important; /* Reduce spacing on mobile */
+            }
+            section {
+                margin-bottom: 1rem;
+            }
+            .space-y-4 {
+                margin-bottom: 0.5rem !important;
+            }
         }
     </style>
 </head>
@@ -136,11 +156,9 @@
                         <li>Modernized and optimized legacy C++ simulation engines for cross-platform compatibility (Windows, Linux, WSL), integrating JSON APIs to enable seamless data workflows for resource-intensive statistical analysis.</li>
                         <li>Mentored junior engineers on performance-critical C++ best practices, reducing code review cycles by 25% and improving team adherence to SOLID principles.</li>
                     </ul>
-                </div>
-
-                <div class="mb-6">
+                </div>                <div class="mb-6">
                     <div class="flex justify-between items-center">
-                        <span class="italic">Software Engineer II</span>
+                        <span class="italic font-medium text-base">Software Engineer II</span>
                         <span class="italic">Oct 2023 – Aug 2024</span>
                     </div>
                     <ul class="list-disc pl-6 text-gray-700 mt-2 space-y-1">

@@ -1,14 +1,14 @@
 :root {
-    --navy: #0f172a;
-    --light-navy: #112240;
-    --lightest-navy: #233554;
+    --navy: #0C1326;
+    --light-navy: #0E1A36;
+    --lightest-navy: #182F52;
     --slate: #8892b0;
     --light-slate: #a8b2d1;
     --lightest-slate: #ccd6f6;
     --white: #e6f1ff;
     --green: #64ffda;
     --green-tint: rgba(100, 255, 218, 0.1);
-    --glow-color: rgba(100, 255, 218, 0.1);
+    --glow-color: rgba(25, 49, 111, 0.5); /* Updated to #19316f with higher opacity for better visibility */
     
     --font-sans: 'Inter', -apple-system, system-ui, sans-serif;
     --fz-xxs: 12px;
@@ -39,6 +39,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 50px; /* Reduced padding to show more of the section at the top */
 }
 
 body {
@@ -270,7 +271,7 @@ section {
 }
 
 .experience-title {
-    font-size: calc(var(--fz-lg) * 0.75);
+    font-size: var(--fz-md); /* Increased from calc(var(--fz-lg) * 0.75) to match about text */
     color: var(--white);
     margin-bottom: 10px;
     font-weight: 500;
@@ -332,6 +333,7 @@ section {
     line-height: 1.6;
     text-align: justify;
     text-justify: inter-word;
+    color: var(--slate); /* Changed to match the about section text color */
 }
 
 .project-links {
@@ -430,7 +432,16 @@ section {
     grid-template-columns: repeat(12, 1fr);
     gap: 10px;
     align-items: center;
-    margin-bottom: 100px;
+    margin-bottom: 50px; /* Reduced from 100px to match experience items */
+    padding: 15px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    background-color: transparent; /* Remove default background */
+}
+
+.project-card:hover {
+    background-color: var(--light-navy);
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
 }
 
 .project-content {
@@ -441,7 +452,7 @@ section {
 
 .project-title {
     margin-bottom: 10px;
-    font-size: calc(var(--fz-xl) * 0.75);
+    font-size: var(--fz-md); /* Changed from calc(var(--fz-xl) * 0.75) to match other headings */
     font-weight: 600;
 }
 
@@ -475,14 +486,13 @@ section {
 }
 
 .project-description {
-    background-color: var(--light-navy);
-    padding: 25px;
-    border-radius: var(--border-radius);
+    padding: 15px 0; /* Change padding to only top/bottom */
     font-size: var(--fz-md);
     line-height: 1.6;
     margin-bottom: 20px;
     text-align: justify;
     text-justify: inter-word;
+    color: var(--slate); /* Added to match about section and experience description text */
 }
 
 .project-stats {
@@ -539,6 +549,14 @@ section {
     gap: 20px;
     margin-bottom: 30px;
     align-items: center;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.writing-item:hover {
+    background-color: var(--light-navy);
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
 }
 
 .writing-image {
@@ -567,7 +585,7 @@ section {
 }
 
 .writing-title {
-    font-size: calc(var(--fz-lg) * 0.75);
+    font-size: var(--fz-md); /* Increased from calc(var(--fz-lg) * 0.75) to match about text */
     font-weight: 500;
     text-align: justify;
 }
@@ -601,6 +619,14 @@ section {
     transform: translate(2px, -2px);
 }
 
+.writing-content p {
+    font-size: var(--fz-md);
+    line-height: 1.6;
+    text-align: justify;
+    text-justify: inter-word;
+    color: var(--slate);
+}
+
 /* Skills Section */
 .skills-grid {
     display: grid;
@@ -609,10 +635,21 @@ section {
     margin-bottom: 30px;
 }
 
+.skill-category {
+    padding: 15px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.skill-category:hover {
+    background-color: var(--light-navy);
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+}
+
 .skill-category h3 {
     color: var(--white);
     margin-bottom: 15px;
-    font-size: calc(var(--fz-lg) * 0.75);
+    font-size: var(--fz-md); /* Increased from calc(var(--fz-lg) * 0.75) to match about text */
     font-weight: 500;
 }
 
@@ -679,6 +716,43 @@ section {
     transform: rotate(360deg);
 }
 
+/* Mobile section titles - hidden by default */
+.mobile-section-title {
+    display: none;
+    color: var(--green);
+    font-size: var(--fz-xl);
+    margin-bottom: 25px;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--lightest-navy);
+    animation: fadeIn 0.6s ease-in-out;
+    letter-spacing: 1px;
+    cursor: pointer; /* Make it obvious it's clickable */
+}
+
+.mobile-section-title::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 50px;
+    height: 2px;
+    background-color: var(--green);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Responsive Styles */
 @media (max-width: 1080px) {
     .container {
@@ -700,16 +774,36 @@ section {
         position: relative;
         top: 0;
         height: auto;
-        padding: 50px 0;
+        padding: 30px 0; /* Reduced from 50px */
+    }
+    
+    section {
+        margin-bottom: 40px; /* Reduced from 80px for mobile */
+        padding-top: 20px; /* Reduced from 30px for mobile */
+    }
+    
+    /* Show mobile section titles */
+    .mobile-section-title {
+        display: block;
+    }
+    
+    .section-content {
+        padding-top: 5px; /* Add space between section title and content */
     }
     
     .experience-item {
         grid-template-columns: 1fr;
         gap: 10px;
+        margin-bottom: 30px; /* Standardized spacing, reduced from 50px */
     }
     
     .project-card {
         grid-template-columns: 1fr;
+        margin-bottom: 30px; /* Reduced from 40px to match experience item spacing (30px) on mobile */
+    }
+    
+    .writing-item {
+        margin-bottom: 20px; /* Reduced from 30px */
     }
     
     .project-content {
@@ -722,6 +816,15 @@ section {
         margin: 20px auto;
         width: fit-content;
         text-align: center;
+    }
+    
+    /* Show mobile section titles */
+    .mobile-section-title {
+        display: block;
+    }
+    
+    html {
+        scroll-padding-top: 40px; /* Appropriate padding for section scrolling on mobile */
     }
 }
 
@@ -757,6 +860,7 @@ section {
 .glow-active {
     width: 350px;
     height: 350px;
+    opacity: 0.9;
 }
 
 /* Hide glow effect on mobile devices */
