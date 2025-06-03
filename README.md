@@ -34,8 +34,7 @@ cd portfolio
 
 ## Live Demo
 
-View the live website at: [GITHUB-USERNAME.github.io/portfolio](https://GITHUB-USERNAME.github.io/portfolio) (will update this URL once deployed)
-
+View the live website at: [devanubhav.vercel.app](https://devanubhav.vercel.app/)
 ## Structure
 
 - `index.html` - Main webpage structure
