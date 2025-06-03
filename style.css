@@ -372,7 +372,36 @@ section {
     padding: 4px 10px;
     background-color: var(--green-tint);
     border-radius: 999px; /* Semi-circular on both sides */
-    transition: var(--transition);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    opacity: 0; /* Start hidden for fade-in animation */
+    animation: fadeInTech 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-play-state: paused; /* Start paused and play when in view */
+    box-shadow: 0 0 0 rgba(100, 255, 218, 0);
+    transform: translateY(5px);
+}
+
+/* Add hover glow effect to tech list items */
+.tech-list li:hover {
+    box-shadow: 0 0 10px 3px rgba(100, 255, 218, 0.4);
+    transform: translateY(-3px) scale(1.05);
+    color: var(--white);
+    background-color: rgba(100, 255, 218, 0.15);
+}
+
+/* Staggered animation for tech list items */
+@keyframes fadeInTech {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    70% {
+        opacity: 0.7;
+        transform: translateY(-2px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .resume-link {

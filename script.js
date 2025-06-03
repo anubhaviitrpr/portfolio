@@ -5,6 +5,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('nav ul li a');
     const mobileSectionTitles = document.querySelectorAll('.mobile-section-title');
+      // Add Intersection Observer for tech stack animations
+    const techLists = document.querySelectorAll('.tech-list');
+    const techObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const items = entry.target.querySelectorAll('li');
+                    items.forEach((item, index) => {
+                        item.style.animationDelay = `${index * 0.1}s`;
+                        item.style.animationPlayState = 'running';
+                    });
+                    techObserver.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.2 }
+    );
+    
+    techLists.forEach(list => {
+        techObserver.observe(list);
+    });
     
     // Function to update active nav link based on scroll position
     function updateActiveNavLink() {
