@@ -9,6 +9,9 @@
       gtag('js', new Date());
     
       gtag('config', 'G-CJYKKFFRH8');
+
+      // disable auto page_view so GA doesn't override UTM one
+      gtag('config', 'G-CJYKKFFRH8', { send_page_view: false });
     
       // Ensures GA has initialized before sending the manual page_view
       setTimeout(() => {
