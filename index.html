@@ -9,6 +9,15 @@
       gtag('js', new Date());
     
       gtag('config', 'G-CJYKKFFRH8');
+    
+      // Ensures GA has initialized before sending the manual page_view
+      setTimeout(() => {
+        gtag('event', 'page_view', {
+          page_location: window.location.href,
+          page_path: window.location.pathname + window.location.search,
+          page_title: document.title
+        });
+      }, 0);
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
